@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap");
+
+body {
+    background-image: url("bg.png");
+    background-size: cover;
+}
+
+body,
+main {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: "Love Ya Like A Sister", cursive;
+}
+
+main {
+    margin-top: -20px;
+}
+
+h1 {
+    font-size: 40px;
+    background-color: #8cb9c4;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h2 {
+    background-color: white;
+    padding: 30px;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+#snowman-container {
+    position: relative;
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -50px;
+}
+
+.hat {
+    width: 150px;
+    position: absolute;
+    left: 75px;
+    top: 0;
+    z-index: 10;
+}
+
+.scarf {
+    width: 110px;
+    position: absolute;
+    left: 66px;
+    top: 110px;
+    z-index: 9;
+}
+
+.nose {
+    width: 30px;
+    position: absolute;
+    top: 84px;
+    left: 96px;
+    z-index: 8;
+}
+
+.eyes {
+    width: 43px;
+    position: absolute;
+    top: 72px;
+    left: 100px;
+    z-index: 7;
+}
+
+.mouth {
+    width: 43px;
+    position: absolute;
+    top: 95px;
+    left: 103px;
+    z-index: 6;
+}
+
+.left-hand {
+    width: 120px;
+    position: absolute;
+    left: 180px;
+    top: 90px;
+    z-index: 5;
+}
+
+.right-hand {
+    width: 120px;
+    position: absolute;
+    left: -50px;
+    top: 82px;
+    z-index: 4;
+}
+
+.body-top {
+    width: 110px;
+    position: absolute;
+    top: 40px;
+    z-index: 3;
+}
+
+.body-middle {
+    width: 130px;
+    position: absolute;
+    top: 110px;
+    z-index: 2;
+}
+
+.body-bottom {
+    width: 190px;
+    position: absolute;
+    top: 180px;
+    z-index: 1;
+}
+
+#empty-letter-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+#empty-letter-container > .letter-container {
+    margin: 0;
+    width: 45px;
+    height: 48px;
+    text-align: center;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+}
+
+#keyboard-container {
+    display: flex;
+    gap: 24px;
+    width: 600px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#keyboard-container > .letter {
+    cursor: pointer;
+}
+
+.letter-container > .letter {
+    margin-bottom: 8px;
+}
+
+.letter {
+    font-family: "Righteous", cursive;
+    background-color: white;
+    color: black;
+    width: 32px;
+    padding: 6px;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 22px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.letter:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+/* Added by JavaScript */
+.selected {
+    background-color: grey;
+    cursor: not-allowed;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    background-color: red;
+    color: yellow;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2;
+    position: fixed;
+    z-index: 100;
+    border-radius: 8px;
+}
+
+#blackout {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000003d;
+    z-index: 99;
+    position: fixed;
+}
