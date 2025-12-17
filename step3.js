@@ -1,7 +1,10 @@
 /*
  * Step 3: Remove a snowman part when there's no match for a clicked keyboard key
  */
-var words = ["APPLE", "PANCAKES", "COMPUTER", "PARIS", "MICROPHONE", "PASTRY"];
+var words = ["APPLE", "PANCAKES", "COMPUTER", "PARIS", "MICROPHONE", "PASTRY", "SNOWMAN", "CHRISTMAS",
+    "SNOW", "WINTER", "REINDEER", "PRESENTS", "SANTA", "NEW YEAR", "HOLIDAY", "DECORATIONS", "JINGLE BELLS",
+    "DECEMBER", "WRAPPING", "GIFTS", "ELF", "NORTH POLE", "CANDY CANE", "GINGERBREAD HOUSE", "GINGERBREAD MAN",
+    "JOLY", "CAROAL", "BLIZARD", "TREE"];
 var randomWord = getRandomWord(words);
 var keyboardContainer = document.querySelector("#keyboard-container");
 
