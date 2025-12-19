@@ -38,24 +38,52 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
-.win-btn {
+#keyboard-container h2 {
   background-color: #1F7A4A;
-  color: #FFFFFF;
-  border-radius: 12px;
-  padding: 10px 22px;
+  color: #FFF4E6;
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: 2px solid #8B5A2B;
   font-weight: 700;
-  border: none;
+  display: inline-block;
+  box-shadow: 0 4px 0 #145A32;
+  position: relative;
+  overflow: hidden;
 }
 
-.lose-btn {
+#snowman-container h2 {
   background-color: #C62828;
-  color: #FFFFFF;
-  border-radius: 12px;
-  padding: 10px 22px;
+  color: #FFF4E6;
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: 2px solid #8B5A2B;
   font-weight: 700;
-  border: none;
+  display: inline-block;
+  box-shadow: 0 4px 0 #8E1B1B;
+  position: relative;
+  overflow: hidden;
 }
 
+#keyboard-container h2::before,
+#snowman-container h2::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+#keyboard-container h2:hover::before,
+#snowman-container h2:hover::before {
+  opacity: 1;
+  transform: translateX(30%);
+}
 
 #snowman-container {
     position: relative;

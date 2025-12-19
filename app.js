@@ -33,12 +33,37 @@ function checkForMatch(clickedLetter) {
     return hasMatch;
 }
 
+// function checkForWinner() {
+//   var hiddenLetterElements = document.querySelectorAll(".hidden");
+
+//   if (hiddenLetterElements.length === 0) {
+//     keyboardContainer.innerHTML = `
+//       <button class="win-btn">
+//         🎄 You Win!
+//       </button>
+//     `;
+//   }
+// }
+
+// function checkForWinner() {
+//   var hiddenLetterElements = document.querySelectorAll(".hidden");
+
+//   if (hiddenLetterElements.length === 0) {
+//     keyboardContainer.innerHTML = `
+//       <button class="win-btn">
+//         🎄 You Win!
+//       </button>
+//     `;
+//   }
+// }
+
+
 function checkForLoser() {
     if (snowmanParts.length === 0) {
-        document.querySelector("#snowman-container").innerHTML = "<h2>You lost, game over!</h2>";
+       document.querySelector("#snowman-container").innerHTML = "<h2>You lost, game over!</h2>";
         keyboardContainer.innerHTML = `<h2>The word was: ${randomWord}</h2>`;
         //checkForLoser.style.color = "red";
-    }
+   }
 }
 
 function checkForWinner() {

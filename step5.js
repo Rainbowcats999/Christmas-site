@@ -36,18 +36,47 @@ function checkForMatch(clickedLetter) {
     return hasMatch;
 }
 
+// function checkForLoser() {
+//   if (snowmanParts.length === 0) {
+//     document.querySelector("#snowman-container").innerHTML = `
+//       <button class="lose-btn">
+//         ❄️ You Lost — Game Over
+//       </button>
+//     `;
+
+//     keyboardContainer.innerHTML = `
+//       <h2>The word was: <span style="color:#FFF4E6">${randomWord}</span></h2>
+//     `;
+//   }
+// }
+
+
+// // New
+// function checkForWinner() {
+//   var hiddenLetterElements = document.querySelectorAll(".hidden");
+
+//   if (hiddenLetterElements.length === 0) {
+//     keyboardContainer.innerHTML = `
+//       <button class="win-btn">
+//         🎄 You Win!
+//       </button>
+//     `;
+//   }
+// }
+
 function checkForLoser() {
     if (snowmanParts.length === 0) {
-        document.querySelector("#snowman-container").innerHTML = "<h2>You lost, game over!</h2>";
+       document.querySelector("#snowman-container").innerHTML = "<h2>You lost, game over!</h2>";
         keyboardContainer.innerHTML = `<h2>The word was: ${randomWord}</h2>`;
-    }
+        //checkForLoser.style.color = "red";
+   }
 }
 
-// New
 function checkForWinner() {
     var hiddenLetterElements = document.querySelectorAll(".hidden");
     if (hiddenLetterElements.length === 0) {
         keyboardContainer.innerHTML = "<h2>You win!</h2>";
+        //checkForWinner.style.color = "green";
     }
 }
 
