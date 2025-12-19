@@ -1,14 +1,46 @@
 {
   "words": [
-    "APPLE", "PANCAKES", "COMPUTER", "PARIS", "MICROPHONE", "PASTRY", 
-    "SNOWMAN", "CHRISTMAS", "SNOW", "WINTER", "REINDEER", "PRESENTS",
-    "SANTA", "NEW YEAR", "HOLIDAY", "DECORATIONS", "JINGLE BELLS",
-    "DECEMBER", "WRAPPING", "GIFTS", "ELF", "NORTH POLE", "CANDY CANE",
-    "GINGERBREAD HOUSE", "GINGERBREAD MAN", "JOLY", "CAROAL", "BLIZARD", "TREE"
+    "APPLE",
+    "PANCAKES",
+    "COMPUTER",
+    "PARIS",
+    "MICROPHONE",
+    "PASTRY",
+    "SNOWMAN",
+    "CHRISTMAS",
+    "SNOW",
+    "WINTER",
+    "REINDEER",
+    "PRESENTS",
+    "SANTA",
+    "NEW YEAR",
+    "HOLIDAY",
+    "DECORATIONS",
+    "JINGLE BELLS",
+    "DECEMBER",
+    "WRAPPING",
+    "GIFTS",
+    "ELF",
+    "NORTH POLE",
+    "CANDY CANE",
+    "GINGERBREAD HOUSE",
+    "GINGERBREAD MAN",
+    "JOLY",
+    "CAROAL",
+    "BLIZARD",
+    "TREE"
   ],
+  
   "snowmanParts": [
-    "hat", "eyes", "nose", "mouth", "scarf", "left-hand", "right-hand",
-    "body-top", "body-middle", "body-bottom"
+    "hat",
+    "eyes",
+    "nose",
+    "mouth",
+    "scarf",
+    "left-hand",
+    "right-hand",
+    "body-top",
+    "body-middle",
+    "body-bottom"
   ]
 }
-
