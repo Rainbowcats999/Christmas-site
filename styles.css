@@ -64,6 +64,85 @@ h2 {
   overflow: hidden;
 }
 
+/* Play Again button styling */
+#restart-btn {
+    margin-left: 14px;
+    background: linear-gradient(180deg, #FFD166 0%, #FFB35C 50%, #F2973A 100%);
+    color: #3B2F2F;
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.12), 0 2px 0 rgba(255,255,255,0.06) inset;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 180ms ease;
+}
+
+#restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 rgba(0,0,0,0.14), 0 2px 0 rgba(255,255,255,0.06) inset;
+}
+
+#restart-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.12);
+}
+
+#restart-btn:focus {
+    outline: 3px solid rgba(255, 209, 102, 0.35);
+    outline-offset: 2px;
+}
+
+/* add small icon and mobile-friendly size */
+#restart-btn::before {
+    content: "🎁";
+    display: inline-block;
+    margin-right: 8px;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    #restart-btn {
+        padding: 14px 22px;
+        font-size: 18px;
+        border-radius: 14px;
+        margin-left: 8px;
+    }
+}
+
+/* optional subtle pulse on hover for touch affordance */
+@keyframes btnPulse {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.03); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+#restart-btn:hover { animation: btnPulse 600ms ease; }
+
+/* Confetti styles */
+.confetti {
+    position: fixed;
+    top: -12px;
+    width: 10px;
+    height: 14px;
+    opacity: 0.95;
+    border-radius: 2px;
+    will-change: transform, opacity;
+    z-index: 9999;
+    pointer-events: none;
+    transform-origin: center;
+    animation: confetti-fall var(--dur, 2400ms) cubic-bezier(.2,.7,.3,1) var(--delay, 0ms) forwards;
+}
+
+@keyframes confetti-fall {
+    to { transform: translateY(110vh) rotate(520deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confetti { animation: none; display: none; }
+}
+
 #keyboard-container h2::before,
 #snowman-container h2::before {
   content: "";

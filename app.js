@@ -200,6 +200,41 @@ function checkForWinner() {
         saveScoreboard();
         updateScoreboardUI();
         playTone("win");
+        // confetti celebration
+        try {
+            launchConfetti(72);
+        } catch (e) {
+            // ignore if confetti fails
+        }
+    }
+}
+
+// Launch a simple confetti burst using small absolutely positioned elements
+function launchConfetti(count) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    count = count || 50;
+    var colors = ['#FFD166', '#F4A261', '#F94144', '#90BE6D', '#577590', '#8338EC', '#06D6A0'];
+    for (var i = 0; i < count; i++) {
+        var el = document.createElement('div');
+        el.className = 'confetti';
+        var left = Math.random() * 100;
+        el.style.left = left + '%';
+        var size = Math.floor(Math.random() * 8) + 6; // 6-13
+        el.style.width = size + 'px';
+        el.style.height = Math.floor(size * 1.4) + 'px';
+        el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        var delay = Math.floor(Math.random() * 600);
+        var dur = 1800 + Math.floor(Math.random() * 1400);
+        el.style.setProperty('--delay', delay + 'ms');
+        el.style.setProperty('--dur', dur + 'ms');
+        // slight horizontal offset to spread
+        el.style.transform = 'translateY(0) rotate(' + Math.floor(Math.random() * 360) + 'deg)';
+        document.body.appendChild(el);
+        (function (e, d, delay) {
+            setTimeout(function () {
+                try { e.remove(); } catch (err) {}
+            }, d + delay + 300);
+        })(el, dur, delay);
     }
 }
 
