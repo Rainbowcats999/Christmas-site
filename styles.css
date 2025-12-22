@@ -143,6 +143,27 @@ h2 {
     .confetti { animation: none; display: none; }
 }
 
+/* confetti shapes */
+.confetti.circle { border-radius: 50%; }
+.confetti.triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.confetti.star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+
+/* Make restart button match the look of the win message inside the keyboard area */
+#keyboard-container #restart-btn {
+    background-color: #1F7A4A !important;
+    color: #FFFFFF !important;
+    padding: 14px 28px !important;
+    border-radius: 14px !important;
+    border: 2px solid #8B5A2B !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    box-shadow: 0 4px 0 #145A32 !important;
+    margin-left: 12px !important;
+}
+
+/* ensure emoji/icon in restart button remains vertically centered */
+#restart-btn::before { transform: translateY(0); }
+
 #keyboard-container h2::before,
 #snowman-container h2::before {
   content: "";

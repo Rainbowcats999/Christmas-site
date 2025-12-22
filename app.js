@@ -39,17 +39,21 @@ function playTone(type) {
     if (isMuted) return;
     ensureAudio();
     var ctx = audioContext;
-    var o = ctx.createOscillator();
-    var g = ctx.createGain();
-    o.connect(g);
-    g.connect(ctx.destination);
     var now = ctx.currentTime;
     if (type === "correct") {
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.connect(g);
+        g.connect(ctx.destination);
         o.frequency.value = 880;
         g.gain.value = 0.04;
         o.start(now);
         o.stop(now + 0.08);
     } else if (type === "incorrect") {
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.connect(g);
+        g.connect(ctx.destination);
         o.frequency.value = 220;
         g.gain.value = 0.06;
         o.start(now);
@@ -68,10 +72,28 @@ function playTone(type) {
             o2.stop(t + 0.12);
         });
     } else if (type === "lose") {
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.connect(g);
+        g.connect(ctx.destination);
         o.frequency.value = 120;
         g.gain.value = 0.08;
         o.start(now);
         o.stop(now + 0.6);
+    } else if (type === "confetti") {
+        // a short jingle for confetti: three quick notes
+        var notes = [1100, 1380, 1650];
+        notes.forEach(function (f, i) {
+            var o3 = ctx.createOscillator();
+            var g3 = ctx.createGain();
+            o3.connect(g3);
+            g3.connect(ctx.destination);
+            o3.frequency.value = f;
+            g3.gain.value = 0.02;
+            var t2 = now + i * 0.08;
+            o3.start(t2);
+            o3.stop(t2 + 0.12);
+        });
     }
 }
 
@@ -200,9 +222,15 @@ function checkForWinner() {
         saveScoreboard();
         updateScoreboardUI();
         playTone("win");
-        // confetti celebration
+        // confetti celebration (tuned colors, shapes, quantity, and timing)
         try {
-            launchConfetti(72);
+            launchConfetti(120, {
+                colors: ['#FFD166', '#EF476F', '#06D6A0', '#118AB2', '#F4A261', '#8338EC'],
+                shapes: ['rect', 'circle', 'triangle', 'star'],
+                count: 120,
+                minDur: 1200,
+                maxDur: 3200,
+            });
         } catch (e) {
             // ignore if confetti fails
         }
@@ -210,26 +238,45 @@ function checkForWinner() {
 }
 
 // Launch a simple confetti burst using small absolutely positioned elements
-function launchConfetti(count) {
+function launchConfetti(count, opts) {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    count = count || 50;
-    var colors = ['#FFD166', '#F4A261', '#F94144', '#90BE6D', '#577590', '#8338EC', '#06D6A0'];
-    for (var i = 0; i < count; i++) {
+    opts = opts || {};
+    var confettiCount = typeof count === 'number' ? count : (opts.count || 96);
+    var colors = opts.colors || ['#FFD166', '#F94144', '#90BE6D', '#FFB703', '#8338EC', '#06D6A0', '#EF476F'];
+    var minDur = opts.minDur || 1400;
+    var maxDur = opts.maxDur || 3000;
+    var shapeTypes = opts.shapes || ['rect', 'circle', 'triangle', 'star'];
+
+    // play a short jingle when confetti fires
+    playTone('confetti');
+
+    for (var i = 0; i < confettiCount; i++) {
         var el = document.createElement('div');
         el.className = 'confetti';
+
+        // random shape
+        var t = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+        if (t !== 'rect') el.classList.add(t);
+
         var left = Math.random() * 100;
         el.style.left = left + '%';
-        var size = Math.floor(Math.random() * 8) + 6; // 6-13
+
+        var size = Math.floor(Math.random() * 10) + 6; // 6-15
         el.style.width = size + 'px';
-        el.style.height = Math.floor(size * 1.4) + 'px';
+        el.style.height = Math.floor(size * (t === 'circle' ? 1 : 1.4)) + 'px';
+
         el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        var delay = Math.floor(Math.random() * 600);
-        var dur = 1800 + Math.floor(Math.random() * 1400);
+
+        var delay = Math.floor(Math.random() * 700);
+        var dur = minDur + Math.floor(Math.random() * (maxDur - minDur));
         el.style.setProperty('--delay', delay + 'ms');
         el.style.setProperty('--dur', dur + 'ms');
-        // slight horizontal offset to spread
+
+        // slight rotation start
         el.style.transform = 'translateY(0) rotate(' + Math.floor(Math.random() * 360) + 'deg)';
+
         document.body.appendChild(el);
+
         (function (e, d, delay) {
             setTimeout(function () {
                 try { e.remove(); } catch (err) {}
