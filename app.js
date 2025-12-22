@@ -5,6 +5,7 @@ var words = ["APPLE", "PANCAKES", "COMPUTER", "PARIS", "MICROPHONE", "PASTRY", "
 var randomWord = getRandomWord(words);
 var keyboardContainer = document.querySelector("#keyboard-container");
 var snowmanContainer = document.querySelector("#snowman-container");
+/* threeRoot / three.js prototype removed */
 
 // Save original HTML so we can restore on restart
 var originalKeyboardHTML = keyboardContainer.innerHTML;
@@ -150,6 +151,8 @@ loadScoreboard();
 keyboardContainer.addEventListener("click", handleKeyboardClick);
 
 generateHiddenWord(randomWord);
+
+// (CSS 3D prototype removed; no parallax/scene tilt)
 
 function checkForMatch(clickedLetter) {
     var hiddenLetterElements = document.querySelectorAll(".hidden");
@@ -319,6 +322,9 @@ function initGame() {
     // choose a new word and generate hidden letters
     randomWord = getRandomWord(words);
     generateHiddenWord(randomWord);
+
+    // no 3D prototype in use; ensure DOM snowman is visible
+    if (snowmanContainer) snowmanContainer.style.display = '';
 }
 
 function generateHiddenWord(word) {

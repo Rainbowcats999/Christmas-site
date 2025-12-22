@@ -196,6 +196,8 @@ h2 {
     margin-bottom: -50px;
 }
 
+/* Note: 3D prototype removed; keep standard layout and 2D removal animation */
+
 .hat {
     width: 150px;
     position: absolute;
