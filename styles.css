@@ -222,6 +222,34 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
+/* Removal animation */
+.removing {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.9);
+    transition: opacity 400ms ease, transform 400ms ease;
+}
+
+#controls {
+    margin: 10px 0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+#mute-btn {
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#scoreboard {
+    color: #FFF4E6;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 /* Added by JavaScript */
 .selected {
     background-color: grey;
