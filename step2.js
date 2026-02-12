@@ -4,7 +4,7 @@
 var words = ["APPLE", "PANCAKES", "COMPUTER", "PARIS", "MICROPHONE", "PASTRY", "SNOWMAN", "CHRISTMAS",
     "SNOW", "WINTER", "REINDEER", "PRESENTS", "SANTA", "NEWYEAR", "HOLIDAY", "DECORATIONS", "JINGLEBELLS",
     "DECEMBER", "WRAPPING", "GIFTS", "ELF", "NORTHPOLE", "CANDYCANE", "GINGERBREADHOUSE", "GINGERBREADMAN",
-    "JOLY", "CAROAL", "BLIZARD", "TREE", "RED", "GREEN"];
+    "JOLY", "CAROAL", "BLIZARD", "TREE", "RED", "GREEN", "ICICLE", "HAM", "MRS.CLAUS", "ICE", "FROST", "FROSTY", "PUDDING", "PIE"];
 var randomWord = getRandomWord(words);
 var keyboardContainer = document.querySelector("#keyboard-container");
 

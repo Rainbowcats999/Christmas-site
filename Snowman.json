@@ -28,7 +28,17 @@
     "JOLY",
     "CAROAL",
     "BLIZARD",
-    "TREE"
+    "TREE",
+    "RED", 
+    "GREEN", 
+    "ICICLE", 
+    "HAM", 
+    "MRS.CLAUS", 
+    "ICE", 
+    "FROST", 
+    "FROSTY", 
+    "PUDDING", 
+    "PIE"
   ],
   
   "snowmanParts": [
